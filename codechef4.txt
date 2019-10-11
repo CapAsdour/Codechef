@@ -1,0 +1,118 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class codechef2
+{
+    public static  int D;
+    public static void main (String[] args) throws java.lang.Exception
+    {
+                Scanner sc = new Scanner(System.in);
+                int T = sc. nextInt();
+                 int fi[]=new int[T];
+                 int val[]=new int[T];
+                for(int i=0;i<T;i++)
+                
+                {  int v=0;
+                    int N=sc.nextInt();
+                    int a[]=new int[N];
+                    for(int j=0;j<N-1;j++)
+                    { a[i]=sc.nextInt();
+                    }
+                    int F=sc.nextInt();
+                    int flag=check(a,F);
+                   if(flag!=0)
+                    {int c=0,p=1;
+                    for(int h=0;h<N;h++)
+                     {
+                         D=0;int count =0;
+                        int[] result=add(a,h,N);
+                        while(c!=2)
+                        { 
+                            int[] arr = arrange(result);
+                             c=0;
+                             for (int k=0; k<arr.length; k++) 
+                                {
+                               if(arr[k]!=0)
+                                   c++;
+                                  }
+                                  if(p==c)
+                                  { 
+                                      flag=0;
+                                      break;
+                                      
+                                    }
+                                if(c!=2)
+                                 { p=c;
+                                   }
+                                count++ ;  
+                        }
+                       if(result[0]==-1&& result[1]<F)
+                          { 
+                            D=D+F;
+                            v=count+1;
+                            break;
+                        }
+                        else
+                          flag=0;
+                      }
+                    }
+                    if(flag!=0)
+                    {
+                        fi[i]=v;
+                        val[i]=D;
+                    }
+                }
+                print(fi,val,T);
+            }
+           static int[] arrange(int a[])
+                { for(int i=0;i<a.length-1;i++)
+                    {
+                       for(int j=0;j<a.length-1;j++)
+                       {
+                           if(a[j]==0&& a[j+1]!=0)
+                        {
+                            a[j]=a[j+1];
+                            a[j+1]=0;
+                        }
+                    }
+                }
+                 return a;
+                }
+              static int check(int a[],int f)
+                {  int fg=0;
+                    for(int l=0;l<a.length;l++)
+                  { 
+                     if(a[l]<f)
+                      {fg++;
+                        }
+                    }
+                    if (fg==0)
+                    return 0;
+                    else
+                    return fg;
+            }
+            static void print(int a[],int b[],int t)
+            { for(int i=0;i<t;i++)
+                {
+                if(a[i]==0)
+                System.out.println("impossible");
+                else
+                {
+                    System.out.println("possible");
+                    System.out.println(a[i]+" "+b[i]);
+                }
+            }
+        }
+            static int[] add( int a[],int i,int n)
+            {
+         for(int j=n-2;j>=i;j--)
+         {
+             a[j+1]=a[j];
+        }
+        a[i]=-1;
+        return a;
+    }
+}
+      
