@@ -1,2 +1,2 @@
 # Codechef
-This has solutions of CodeChef problem using C
+This has solutions of CodeChef problem using all languages
