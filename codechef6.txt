@@ -1,0 +1,55 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codecheffi
+
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+                int T = sc. nextInt();
+                
+                for(int i=0;i<T;i++)
+                {
+                    int a,count=0;String x=" ";
+                    int N=sc.nextInt();
+                for(int j=0;j<(int)(Math.pow(2,N));j++)
+                { int n=j;
+                    if(n==0)
+                    {x="0 ";
+                     ad(x,N);
+                     x="";
+                    }
+                    else
+                    {
+                        while(n > 0)
+              {
+            a = n % 2;
+            if(a == 1)
+            {
+                count++;
+            }
+            x = a + " " + x;
+            n = n / 2;
+              }
+            ad(x,N);
+            x="";count=0;
+           }
+    }
+}
+
+}
+public static void ad(String s,int n)
+{
+    int len=s.length();
+    int l=s.length() - s.replaceAll(" ", "").length();
+    while(len-l!=n)
+    {
+        s="0 "+s;
+        len++;
+    }
+    System.out.println(s);
+}
+}
